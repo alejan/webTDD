@@ -65,11 +65,9 @@ class FuncionalTest(TestCase):
         self.browser.get('http://localhost:8000')
         link = self.browser.find_element_by_id('id_login')
         link.click()
-        self.browser.implicitly_wait(3)
-
         nombreUsuario = self.browser.find_element_by_id('id_username')
         nombreUsuario.send_keys('juan645')
-            self.browser.implicitly_wait(3)
+        self.browser.implicitly_wait(3)
         clave = self.browser.find_element_by_id('id_password')
         clave.send_keys('clave123')
         botonGrabar = self.browser.find_element_by_id('id_ingresar')

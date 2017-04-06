@@ -55,12 +55,9 @@
                 form.submit();
             }
         });
-        $('#imagen').click(function () {
-            alert($('input[type=file]').val());
-            return true;
 
-        });
-        $('#register_modal').on('hidden.bs.modal', function () {
+
+        $('#login_modal').on('hidden.bs.modal', function () {
             validator.resetForm();
         })
     });
