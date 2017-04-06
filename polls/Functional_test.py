@@ -65,12 +65,59 @@ class FuncionalTest(TestCase):
         self.browser.get('http://localhost:8000')
         link = self.browser.find_element_by_id('id_login')
         link.click()
-        nombreUsuario = self.browser.find_element_by_id('id_username')
+        modal = self.browser.find_element_by_id('login_modal')
+
+        nombreUsuario = modal.find_element_by_id('id_username')
         nombreUsuario.send_keys('juan645')
-        self.browser.implicitly_wait(3)
-        clave = self.browser.find_element_by_id('id_password')
+
+        clave = modal.find_element_by_id('id_password')
         clave.send_keys('clave123')
-        botonGrabar = self.browser.find_element_by_id('id_ingresar')
+        botonGrabar = modal.find_element_by_id('id_ingresar')
         botonGrabar.click()
-        self.browser.implicitly_wait(5)
-        self.assertIn("Panel principal", self.browser.title)
+
+
+    def test_editar_independiente(self):
+        self.browser.get('http://localhost:8000')
+        link = self.browser.find_element_by_id('id_login')
+        link.click()
+        modal = self.browser.find_element_by_id('login_modal')
+
+        nombreUsuario = modal.find_element_by_id('id_username')
+        nombreUsuario.send_keys('juan645')
+
+        clave = modal.find_element_by_id('id_password')
+        clave.send_keys('clave123')
+        botonGrabar = modal.find_element_by_id('id_ingresar')
+        botonGrabar.click()
+
+        close = self.browser.find_element_by_class_name('close')
+        close.click()
+
+        botonEditar = self.browser.find_element_by_id('id_editar')
+        botonEditar.click()
+
+        form = self.browser.find_element_by_id('editar-form')
+
+        nombre = form.find_element_by_id('id_nombre')
+        nombre.clear()
+        nombre.send_keys('Juan Daniel Editadpo')
+
+        apellidos = form.find_element_by_id('id_apellidos')
+        apellidos.clear()
+        apellidos.send_keys('Arevalo')
+
+        experiencia = form.find_element_by_id('id_aniosExperiencia')
+        experiencia.clear()
+        experiencia.send_keys('5')
+
+        telefono = form.find_element_by_id('id_telefono')
+        telefono.clear()
+        telefono.send_keys('3173024578')
+
+        correo = form.find_element_by_id('id_correo')
+        correo.clear()
+        correo.send_keys('jd.patino1@uniandes.edu.co')
+
+        botonGrabar = form.find_element_by_id('id_grabar')
+        botonGrabar.click()
+
