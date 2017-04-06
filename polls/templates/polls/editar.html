@@ -5,7 +5,7 @@
 
     <div class="container-fluid">
     <div class="row">
-            <form role="form" method="post" action="{% url 'principal:editar' idTrabajador=user.id%}" enctype="multipart/form-data" id="editar-form">
+            <form role="form" method="post" action="{% url 'principal:editar' idTrabajador=user.id%}" enctype="multipart/form-data" id="editarr-form">
                 {% csrf_token %}
                 <label id="idhidden" hidden></label>
                 <div class="modal-body">
