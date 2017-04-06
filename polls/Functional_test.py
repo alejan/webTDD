@@ -121,3 +121,13 @@ class FuncionalTest(TestCase):
         botonGrabar = form.find_element_by_id('id_grabar')
         botonGrabar.click()
 
+    def test_comentar(self):
+        self.browser.get('http://localhost:8000')
+
+        trabajador = self.browser.find_element_by_class_name('trabajador')
+        trabajador.click()
+
+        close = self.browser.find_element_by_id('correo')
+        close.send_keys("comentario")
+        close = self.browser.find_element_by_id('comentario')
+        close.send_keys("comentario")
